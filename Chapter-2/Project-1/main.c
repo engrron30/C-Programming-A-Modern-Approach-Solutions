@@ -5,10 +5,10 @@
 
 int main() {
 	int i, j;
-	for (i = 0; i < CHECK_SYMBOL_HEIGHT; i++) {
-		/*for (j = CHECK_SYMBOL_WIDTH - 1; j >= 0; j--) {
-			printf(" ");
-		}*/
+	for (i = CHECK_SYMBOL_HEIGHT; i >= 0; i--) {
+		for (j = i + 2; j >= 0; j--) {
+				printf(" ");
+		}
 		printf("*");
 		printf("\n");
 	}
