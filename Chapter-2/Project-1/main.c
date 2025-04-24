@@ -16,7 +16,10 @@ int main() {
 	for (i = CHECK_HEIGHT - 1; i >= 0; i--) {
 		bool diff_found = false;
 		for (j = i + CHECK_DIMS_DIFF - 1; j >= 0; j--) {
-			if (!( (i <= CHECK_DIMS_DIFF) && (j == i + dec_for_diff_detect - 1) && (i != 0) && (!diff_found))) {
+			if (!( (i <= CHECK_DIMS_DIFF) && 
+				(j == i + dec_for_diff_detect - 1) && 
+				(i != 0) && 
+				(!diff_found))) {
 				printf(" ");
 			} else {
 				if (!diff_found) {
