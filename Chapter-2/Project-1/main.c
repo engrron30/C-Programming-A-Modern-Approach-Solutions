@@ -7,8 +7,8 @@
  * 	(2) Difference between width and height must not be equal or less than height
 */
 
-#define CHECK_HEIGHT	4
-#define CHECK_WIDTH	9
+#define CHECK_HEIGHT	6
+#define CHECK_WIDTH	8
 #define CHECK_DIMS_DIFF	CHECK_WIDTH - CHECK_HEIGHT
 
 int main() {
