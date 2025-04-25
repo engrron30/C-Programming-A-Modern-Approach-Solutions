@@ -2,7 +2,6 @@
 
 This repository contains my personal solutions to the exercises in the book "C Programming: A Modern Approach". These exercises can be found in Programming Projects sections.
 
-
 Information regarding the book
 Title: C Programming: A Modern Approach
 Edition: Second edition (2)
