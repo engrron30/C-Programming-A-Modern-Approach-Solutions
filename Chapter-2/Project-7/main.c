@@ -4,19 +4,19 @@
 #define FAILURE		-1
 
 /*
- *	Function: calc_left_amount_when_divided
+ *	Function: divide_amount_to_bills
  *	Description:
  *		Accepts two integer: 
- *			(1) The bill to be divided; and
- *			(2) The amount that will divide the bill.
- *		It returns two integers:
- *			(1) Integral quotient between the bill [1] and amount that will divide [2].
- *			(2) Amount remaining.
+ *			(1) The amount to be divided; and
+ *			(2) The bill to divide the amount
+ *
+ *		Returns the amount divided by bill.
+ *		The remainder becomes the new amount
  */
 
-int divide_amount_to_bills( int amount, int divisor ) {
-	int num_of_bills = amount / divisor;
-	amount %= divisor;
+int divide_amount_to_bills( int *amount, int divisor ) {
+	int num_of_bills = *amount / divisor;
+	(*amount) %= divisor;
 	return num_of_bills;
 }
 
@@ -26,22 +26,24 @@ int main() {
 	if (scanf("%d", &user_amount) != 1) {
 		return FAILURE;
 	}
+	int original_amount = user_amount;
 
 	printf("----------------------------\n");
-	int bills[4] = { 0 };
+	int bills[4]     = { 20, 10, 5, 1 };
+	int bills_num[4] = { 0 };
+	int bills_sum_check = 0;
 		
-	bills[0] = user_amount / 20;
-	user_amount %= 20;
-	bills[1] = user_amount / 10;
-	user_amount %= 10;
-	bills[2] = user_amount / 5;
-	user_amount %= 5;
-	bills[3] = user_amount;
+	for (int i = 0; i < 4; i++) {
+		bills_num[i] = divide_amount_to_bills(&user_amount, bills[i]);
+		printf("\t%d bills: 	%d\n", bills[i], bills_num[i]);
+		bills_sum_check += bills[i] * bills_num[i];
+	}
 
-	printf("\t$20 bills: 	%d\n", bills[0]);
-	printf("\t$10 bills: 	%d\n", bills[1]);
-	printf("\t$5 bills:  	%d\n", bills[2]);
-	printf("\t$1 bills:  	%d\n", bills[3]);
+	if (bills_sum_check != original_amount) {
+		printf("[ERROR] Unbalanced amount %d->%d\n", original_amount, bills_sum_check);
+		printf("[ERROR] Where's the %d$?\n", original_amount - bills_sum_check);
+		return FAILURE;
+	}
 
 	return SUCCESS;
 }
