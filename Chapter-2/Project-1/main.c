@@ -43,17 +43,17 @@ int main() {
 				(!diff_found) 
 			   )  ) 
 			{
-				printf(" ");
+				putchar(' ');
 			} else {
 				if (!diff_found) {
 					diff_found = true;
 					dec_for_diff_detect -= 1;
-					printf("*");
+					putchar('*');
 				}
 			}
 		}
-		printf("*");
-		printf("\n");
+		putchar('*');
+		putchar('\n');
 	}
 	return 0;
 }
