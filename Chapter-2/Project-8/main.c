@@ -1,17 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 typedef struct loan_detls {
-	float loan_amt;
-	float int_rate;
-	float mnthly_pmnt;
+	double loan_amt;
+	double int_rate;
+	double mnthly_pmnt;
 } loan_detls_t;
 
 int ask_input_from_usr( char	*query_msg,
-			float	*loan_data )
+			double	*loan_data )
 {
 	printf("Enter %s: ", query_msg);
-	if (scanf("%f", loan_data) != 1) {
+	if (scanf("%lf", loan_data) != 1) {
 		perror("Scanf error.\n");
 	}
 
@@ -20,9 +21,10 @@ int ask_input_from_usr( char	*query_msg,
 
 int find_bal_after_mnthly_pmnt( char 	     *cardi_val,
 				loan_detls_t *loan_dets) {	
-	float balance = (loan_dets->loan_amt * (1 + loan_dets->int_rate)) - loan_dets->mnthly_pmnt;
-	printf("Balance after %s payment: %0.2f\n", cardi_val, balance);
-	return balance;
+	double mnthly_int = loan_dets->loan_amt * loan_dets->int_rate;
+	loan_dets->loan_amt += mnthly_int - loan_dets->mnthly_pmnt;
+	printf("Balance after %s payment: %0.2f\n", cardi_val, loan_dets->loan_amt);
+	return loan_dets->loan_amt;
 }
 
 void display_loan_dets(loan_detls_t *loan_dets) {
