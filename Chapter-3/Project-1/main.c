@@ -15,7 +15,7 @@ int main() {
 		printf("Invalid year\n");
 		return -1;
 	}
-	printf("Date: %d/%d/%d\n", yyyy, mm, dd);
+	printf("Date: %d%d%d\n", yyyy, mm, dd);
 
 	return 0;
 }
