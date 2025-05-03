@@ -10,9 +10,13 @@ int query_tel_num_parts(tel_num_t *tel_num) {
 	int rv = -1;
 	printf("Enter phone number [(xxx) xxx-xxxx]: ");
 
-	scanf("(%3s) %3s-%4s", tel_num->num_prefix_3,
-			       tel_num->num_middle_3,
-			       tel_num->num_last_4);
+	int query_rv = scanf("(%3s) %3s-%4s", 
+		tel_num->num_prefix_3,
+		tel_num->num_middle_3,
+		tel_num->num_last_4);
+	if (query_rv != 3)
+		goto exit;
+
 	rv = 0;
 exit:
 	return rv;
@@ -33,7 +37,10 @@ exit:
 
 int main() {
 	tel_num_t tel_eg;
-	query_tel_num_parts( &tel_eg );
+	if (query_tel_num_parts( &tel_eg )) {
+		perror("tel_num_parts are not queried.");
+		return -1;
+	}
 	displ_tel_num_parts( tel_eg );
 
 	return 0;
