@@ -19,11 +19,11 @@ int main() {
             goto exit;
         }
 
-        int j;
-        if (i == 0)
+        int j = i ? 0: 1;
+        /*if (i == 0)
             j = 1;
         else
-            j = 0;
+            j = 0;*/
 
         //printf("[%d] i=%d j=%d num=%d\n", i, i, j, num_frac[i] * den_frac[j]);
         sum_num += (num_frac[i] * den_frac[j]);
