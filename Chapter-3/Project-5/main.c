@@ -39,21 +39,19 @@ int main() {
         }
     }
 
+    printf("\nSum of Rows:        ");
     for (int k = 0; k < 4; k++) {
-        if (k == 0)
-            printf("\nSum of Rows:        ");
         printf("%d ", sum_row[k]);
     }
+           
 
+    printf("\nSum of Columns:   ");
     for (int k = 0; k < 4; k++) {
-        if (k == 0)
-            printf("\nSum of Columns:   ");
         printf("%d ", sum_col[k]);
     }
 
+    printf("\nSum of Diagonals: ");
     for (int k = 0; k < 2; k++) {
-        if (k == 0)
-            printf("\nSum of Diagonals: ");
         printf("%d ", sum_dia[k]);
     }
 
