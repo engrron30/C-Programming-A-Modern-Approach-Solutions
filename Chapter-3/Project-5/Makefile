@@ -1,4 +1,4 @@
-TARGET="output"
+TARGET="output.exe"
 
 all:
 	gcc main.c -o $(TARGET)
