@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-#define DEBUG 0
+
+
+
 
 bool isOneDigit(int d1, int d2, int d3) {
     bool rv = false;
@@ -14,8 +16,11 @@ bool isOneDigit(int d1, int d2, int d3) {
     rv = true;
 exit:
     return rv;
-
 }
+
+
+
+
 
 int main() {
     int d1, d2, d3; 
