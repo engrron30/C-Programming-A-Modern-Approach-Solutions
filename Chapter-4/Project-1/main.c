@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 int main() {
-    int two_dig; 
+    int two_dig, ret; 
     printf("Enter a two digit number: ");
-    int ret = scanf("%d", &two_dig);
+    ret = scanf("%d", &two_dig);
 
     if (!ret) {
         perror("Error encountered in scanf.\n");
